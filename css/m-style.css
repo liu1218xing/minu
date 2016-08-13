@@ -306,7 +306,7 @@ a{
     /*border:1px red solid;*/
 }
  a:hover{
-color: #DD4814;
+color: #bb110c;
 font-weight: 600px;
 text-decoration: underline;
 }
@@ -369,7 +369,7 @@ text-decoration: underline;
     /*border: 1px red solid;*/
 }
 .hot-pro-intro .hot-title a:hover{
-color: #DD4814;
+color: #bb110c;
 font-weight: 600px;
 text-decoration: underline;
 }
@@ -414,8 +414,8 @@ text-decoration: underline;
 }
 
 .product-process-item a:hover{
-    /*background-color: #DD4814;*/
-    color: #DD4814;
+    /*background-color: #bb110c;*/
+    color: #bb110c;
 }
 .product-process-list{
     margin-top: 20px;
@@ -590,16 +590,15 @@ text-decoration: underline;
 }
 .why-list .why-num{
     display: inline-block;
-    width: 30px;
-    height: 30px;
+    width: 44px;
+    height: 44px;
     color: #fff;
     /*font-family: Arial;*/
     text-align: center;
-    background-color: #DD4814;
-    border: 1px red solid;
+    background-color: #bb110c;
     margin-right: 14px;
     margin-top: 30px;
-    line-height: 30px;
+    line-height: 44px;
     /*background: url("images/numb1.jpg");*/
 }
 
@@ -688,11 +687,12 @@ text-decoration: underline;
     line-height: 10px;
     font-size: 10px;
     font-family: "Arial";
-    background-color: #dd4814;
+    background-color: #bb110c;
     color: #fff;
     /*border:1px red solid;*/
 }
 .newlist .new-list-tit{
+    margin-top: 14px;
     position: relative;
     /*border:1px red solid;*/
 }
@@ -704,6 +704,18 @@ text-decoration: underline;
 .newlist li{
     border-bottom: 1px #e1e1e1 dashed;
     line-height: 34px;
+}
+.newlist .online-mes-tit{
+    /*margin-top: 14px;*/
+    height: 44px;
+    color: #fff;
+    background-color: #bb110c;
+    text-align: center;
+    border-radius: 6px;
+}
+.newlist .online-mes-tit h3{
+
+    line-height: 44px;
 }
 .select-cust-list {
     /*padding-left: 0;*/
@@ -719,7 +731,7 @@ text-decoration: underline;
 }
 .bs-docs-footer .bd-foot{
     padding-top: 14px;
-    /*border-top: 5px #DD4814 solid;*/
+    /*border-top: 5px #bb110c solid;*/
 }
 .bs-docs-footer .bd-foot p{
     padding: 0;
@@ -752,6 +764,31 @@ text-decoration: underline;
 }
 .minu-index{
   padding-left: 140px;
+}
+.newlist .online-mes-list {
+    margin-top: 14px;
+}
+.newlist .online-mes-list .form-control{
+    width: 200px;
+}
+.newlist .online-mes-list td{
+    height: 42px;
+}
+.newlist .online-mes-list input,textarea{
+    margin-left: 14px;
+    /*width: 100%;*/
+}
+.newlist .online-mes-list .cproblem{
+    margin-top: 5px;
+}
+.newlist .online-mes-list .btn-submit{
+    margin-left: 56px;
+    width: 100px;
+    margin-top: 10px;
+}
+.newlist .online-mes-list .btn-submit:hover{
+    background-color: #bb110c;
+    color: #fff;
 }
 /*.select-cust-list .cust-list{
   border: 1px blue solid;

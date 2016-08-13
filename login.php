@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <!doctype html>
 <html>
 <head>
@@ -64,20 +63,3 @@
 </div>
 </body>
 </html>
-=======
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Document</title>
-</head>
-<body>
-	<?php echo "hello";
-	echo 23+4;
-	// echo <br>;
-	echo "bay";
-	// mysql_connect('127.0.0.1','liuxing','liu1218xing')?'niuren':'huairen';
-	?>
-</body>
-</html>
->>>>>>> 1ba896bfeaf209a92a07e1eeabfba6b80bd7697f

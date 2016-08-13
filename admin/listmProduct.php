@@ -140,6 +140,9 @@ $rows=fetchAll($sql);
 					                        			<td><?php echo $row['cName'];?></td>
 					                        		</tr>
 					                        		
+					                        		
+					                        		
+					                        		
 					                        		<tr>
 					                        			<td width="20%"  align="right">商品图片</td>
 					                        			<td>

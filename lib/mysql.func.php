@@ -44,10 +44,9 @@ function update($table,$array,$where=null){
 	}
 		$sql="update {$table} set {$str} ".($where==null?null:" where ".$where);
 		$result=mysql_query($sql);
-		// $result=mysql_query("update mind_cate set sortid='10',parentid='2',cName='测试分类',isshow='1' where id=10");
 		// var_dump($sql);
-		// var_dump($result);
-		// var_dump(mysql_affected_rows());exit;
+		//var_dump($result);
+		//var_dump(mysql_affected_rows());exit;
 		if($result){
 			return mysql_affected_rows();
 		}else{

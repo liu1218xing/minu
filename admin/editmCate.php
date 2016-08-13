@@ -1,8 +1,7 @@
 <?php 
 require_once '../include.php';
 checkLogined();
-$rows=getAllParentCate();
-// var_dump($rows);
+$rows=getAllmCate();
 if(!$rows){
 	alertMes("没有相应分类，请先添加分类!!", "addCate.php");
 }

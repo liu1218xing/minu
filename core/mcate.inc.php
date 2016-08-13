@@ -27,14 +27,14 @@ function addmCate(){
 	if(is_array($uploadFiles)&&$uploadFiles){
 		foreach($uploadFiles as $key=>$uploadFile){
 			thumb($path."/".$uploadFile['name'],"../image_50/".$uploadFile['name'],50,50);
-			thumb($path."/".$uploadFile['name'],"../image_220/".$uploadFile['name'],260,321);
+			thumb($path."/".$uploadFile['name'],"../image_220/".$uploadFile['name'],220,220);
 			thumb($path."/".$uploadFile['name'],"../image_350/".$uploadFile['name'],350,350);
 			thumb($path."/".$uploadFile['name'],"../image_800/".$uploadFile['name'],800,800);
 		}
 	}
 	$res=insert("mind_cate",$arr);
 	$pid=getInsertId();
-	// var_dump($pid);
+	var_dump($pid);
 	if($res&&$pid){
 		foreach($uploadFiles as $uploadFile){
 			$arr1['pid']=$pid;
@@ -117,7 +117,7 @@ function delmCate($id){
  * @return array
  */
 function getAllmCate(){
-	$sql="select id,sortid,cName from mind_cate order by id";
+	$sql="select id,sortid,cName from mind_cate";
 	$rows=fetchAll($sql);
 	return $rows;
 }

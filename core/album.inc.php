@@ -24,7 +24,6 @@ function getProductImgById($id){
 	$row=fetchOne($sql);
 	return $row;
 }
-
 /**
  * 根据商品id得到所有图片
  * @param int $id
