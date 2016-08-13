@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>animation</title>
+	<style type="text/css">
+		.parent{
+
+			height: 100px;
+			width: 1000px;
+			background-color: #adadad;
+		}
+		.children{
+			position: relative;
+			height: 50px;
+			width: 50px;
+			background-color: red;
+			/*left: 500px;*/
+		}
+	</style>
+</head>
+<body>
+	<dir class="parent" id="parent">
+		<div class="children" id="children"></div>
+	</dir>
+	<input type="button" name="" onclick="stepOne()">
+	<script type="text/javascript">
+		var children = document.getElementById("children");
+		var parent = document.getElementById("parent");
+		var stepOne =function(){
+			var to = parseInt(window.getComputedStyle(parent).width);
+			var from = 0;//parseInt(window.getComputedStyle(children).left);
+			console.log('from:'+from+',to:'+to);
+			animation(children,'width',from,to);
+		};
+		var animation = function(ele,attr,from,to){
+			var distance = Math.abs(to - from);
+			console.log('dist:'+distance);
+			var stepLength = distance /1000;
+			var sign = (to - from) /distance;
+			var offset =0;
+			var step = function(){
+				var tmpOffset = offset + stepLength;
+				console.log(tmpOffset);
+				if (tmpOffset < distance)
+				{
+					ele.style[attr] = from + tmpOffset * sign +'px';
+					offset = tmpOffset;
+				}else
+				{
+					ele.style[attr] = to+'px';
+					clearInterval(intervalID)
+				}
+			}
+			ele.style[attr] = from +'px';
+			var intervalID = setInterval(step, 200);
+		};
+		(function(){
+			console.log(parent);
+		})()
+	</script>
+</body>
+</html>
