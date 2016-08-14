@@ -1,21 +1,8 @@
 <?php 
 require_once 'include.php';
-header("content-type:text/html;charset=utf-8");
-$page=$_REQUEST['page']?(int)$_REQUEST['page']:1;
-$cid=$_REQUEST['id'];
-$crow = getmCateById($cid);
-// print_r($_REQUEST);
-$sql="select p.id,p.pName,p.pSn,p.pDesc,p.pubTime,p.isShow,p.isHot,c.cName,p.cId from product as p join mind_cate c on p.cId=c.id where p.cId={$cid}";
-$totalRows=getResultNum($sql);
-$pageSize=9;
-$totalPage=ceil($totalRows/$pageSize);
-if($page<1||$page==null||!is_numeric($page))$page=1;
-if($page>=$totalPage)$page=$totalPage;
-$offset=($page-1)*$pageSize;
-$sql="select p.id,p.pName,p.pSn,p.pDesc,p.pubTime,p.isShow,p.isHot,c.cName,p.cId from product as p join mind_cate c on p.cId=c.id where p.cId={$cid} order by id asc limit {$offset},{$pageSize}";
-$pros=fetchAll($sql);
-// $id=$_REQUEST['id'];
-// $pros=getmProductsByCid($id);
+$id=$_REQUEST['id'];
+$cominfo=getmCompanyById($id);
+// var_dump($cominfo);
 // $proImgs=getProImgsById($id);
 // if(!($proImgs &&is_array($proImgs))){
 //   alertMes("商品图片错误", "index.php");
@@ -39,6 +26,11 @@ $pros=fetchAll($sql);
   <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
   <![endif]-->
     <style type="text/css">
+    /*body { padding-top: 5px; 
+    font-family: "Microsoft YaHei", "宋体", "Open Sans", Arial, serif;}*/
+    
+
+
     /*.nav*/
     </style>
 
@@ -106,6 +98,8 @@ $pros=fetchAll($sql);
     <div class="minupro homepage-panel" id="minupro">
       <!-- <img src="images/minupro.jpg"> -->
     </div>
+
+    
     <!-- 产品部分内容 start -->
     <div class="container g-bd-ser-newpro">
       <div class="row">
@@ -253,32 +247,15 @@ $pros=fetchAll($sql);
         <div class="block">
           <header>
             <div class="hot-pro-title">
-                <h2><?php echo $crow['cName'] ; ?></h2>
+                <h2><?php echo $cominfo['aName']; ?></h2>
                 <!-- <hr> -->
             </div>
             
             <div class="row hot-pro-list">
-              <?php foreach($pros as $pro):
-              $proImg=getProductImgById($pro['id']);
-
-              ?>
-              <div class="col-sm-4 col-xs-12 hot-pro">
-                <div class="hot-pro-pic">
-                  <a href="productDetails.php?id=<?php echo $pro['id'];?>" target="_blank">
-                    <img height="204" width ="165" class="fill avatar" src="admin/uploads/<?php echo $proImg['albumPath'];?>"></a>
-                </div>
-                <div class="hot-title">
-                  <h2>
-                    <a href="productDetails.php?id=<?php echo $pro['id'];?>" target="_blank"><?php echo $pro['pName']; ?></a>
-                  </h2>
-                </div>
+              
+              <div class="col-sm-12 col-xs-12">
+                <?php echo htmlspecialchars_decode($cominfo['aDesc']); ?>
               </div>
-              <?php endforeach ?>  
-              <div class="clearfix"></div>
-              <div class="pull-right">
-                <nav><ul class="pagination"><?php echo showProductPage($page, $totalPage,$cid);?></ul></nav>
-              </div>
-
             </div>
           </header>
         </div>

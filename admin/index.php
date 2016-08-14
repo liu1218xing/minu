@@ -77,16 +77,36 @@ checkLogined();
                         </dl>
                     </li> -->
                     <li>
-                        <h3><span onclick="show('menu5','change5')" id="change5">+</span>管理员管理</h3>
+                        <h3><span onclick="show('menu4','change4')" id="change4">+</span>关于咪奴介绍</h3>
+                        <dl id="menu4" style="display:none;">
+                            <dd><a href="addmCompany.php" target="mainFrame">添加信息</a></dd>
+                            <dd><a href="listmCompany.php?page=1" target="mainFrame">咪奴信息列表</a></dd>
+                        </dl>
+                    </li>
+                    <li>
+                        <h3><span onclick="show('menu5','change5')" id="change5">+</span>客户案例</h3>
                         <dl id="menu5" style="display:none;">
-                        	<dd><a href="addAdmin.php" target="mainFrame">添加管理员</a></dd>
+                        	<dd><a href="addmCase.php" target="mainFrame">添加客户案例</a></dd>
+                            <dd><a href="listmCase.php?page=1" target="mainFrame">客户案例列表</a></dd>
+                        </dl>
+                    </li>
+                    <li>
+                        <h3><span onclick="show('menu6','change6')" id="change6">+</span>定做攻略</h3>
+                        <dl id="menu6" style="display:none;">
+                            <dd><a href="addmArticle.php" target="mainFrame">添加定做攻略</a></dd>
+                            <dd><a href="listmArticle.php?page=1" target="mainFrame">定做攻略列表</a></dd>
+                        </dl>
+                    </li>
+                    <li>
+                        <h3><span onclick="show('menu7','change7')" id="change7">+</span>管理员管理</h3>
+                        <dl id="menu7" style="display:none;">
+                            <dd><a href="addAdmin.php" target="mainFrame">添加管理员</a></dd>
                             <dd><a href="listAdmin.php?page=1" target="mainFrame">管理员列表</a></dd>
                         </dl>
                     </li>
-                    
                          <li>
-                        <h3><span onclick="show('menu6','change6')" id="change6">+</span>商品图片管理</h3>
-                        <dl id="menu6" style="display:none;">
+                        <h3><span onclick="show('menu8','change8')" id="change8">+</span>商品图片管理</h3>
+                        <dl id="menu8" style="display:none;">
                             <dd><a href="listProImages.php" target="mainFrame">商品图片列表</a></dd>
                         </dl>
                     </li>

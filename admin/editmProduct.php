@@ -47,12 +47,6 @@ $proInfo=getmProductById($id);
 <h3>编辑商品</h3>
 <form action="doAdminAction.php?act=editmProduct&id=<?php echo $id;?>" method="post" enctype="multipart/form-data">
 <table width="90%"  border="1" cellpadding="5" cellspacing="0" bgcolor="#cccccc">
-	
-	
-	
-	
-	
-
 	<tr>
 		<td align="right">商品排序号</td>
 		<td><input class="form-inline" type="text" name="sortid"  value="<?php echo $proInfo['sortid']; ?>" /></td>
@@ -96,8 +90,8 @@ $proInfo=getmProductById($id);
 	<tr>
 		<td align="right">是否展示</td>
 		<td>
-			<input id="rd_1" type="radio" name="isShow" value="0" <?php if($proInfo['isShow']) echo 'checked'; ?> /><label for="rd_1">显示</label>
-			<input id="rd_2" type="radio" name="isShow" value="1" <?php if(!$proInfo['isShow']) echo 'checked'; ?> /><label for="rd_2">隐藏</label>
+			<input id="rd_1" type="radio" name="isShow" value="1" <?php if($proInfo['isShow']) echo 'checked'; ?> /><label for="rd_1">显示</label>
+			<input id="rd_2" type="radio" name="isShow" value="0" <?php if(!$proInfo['isShow']) echo 'checked'; ?> /><label for="rd_2">隐藏</label>
 		</td>
 	</tr>
 	

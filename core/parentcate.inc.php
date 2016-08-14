@@ -20,7 +20,7 @@ function addParentCate(){
  * @return array
  */
 function getParentCateById($id){
-	$sql="select id,sortid,cName from mind_cate where id={$id}";
+	$sql="select id,cName from parent_cate where id={$id}";
 	return fetchOne($sql);
 }
 

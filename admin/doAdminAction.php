@@ -49,6 +49,24 @@ elseif($act=="addUser"){
 	$mes=doWaterText($id);
 }elseif($act=="waterPic"){
 	$mes=doWaterPic($id);
+}elseif ($act =="addmCompany") {
+	$mes =addmCompany();
+}elseif ($act=="editmCompany") {
+	$mes =editmCompany($id);
+}elseif ($act =="delmCompany") {
+	$mes =delmCompany($id);
+}elseif ($act =="addmCase") {
+	$mes =addmCase();
+}elseif ($act=="editmCase") {
+	$mes =editmCase($id);
+}elseif ($act =="delmCase") {
+	$mes =delmCase($id);
+}elseif ($act =="addmArticle") {
+	$mes =addmArticle();
+}elseif ($act=="editmArticle") {
+	$mes =editmArticle($id);
+}elseif ($act =="delmArticle") {
+	$mes =delmArticle($id);
 }
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">

@@ -29,12 +29,7 @@ $proinfo=getmProductById($id);
     /*body { padding-top: 5px; 
     font-family: "Microsoft YaHei", "宋体", "Open Sans", Arial, serif;}*/
     
-   /* body {
-        font-family: "Segoe UI", "Lucida Grande", Helvetica, Arial, "Microsoft YaHei", FreeSans, Arimo, "Droid Sans", "wenquanyi micro hei", "Hiragino Sans GB", "Hiragino Sans GB W3", FontAwesome, sans-serif;
-        color: #444;
-        background: #fbfbfb;
-        padding-top: 10px;
-    }*/
+
 
     /*.nav*/
     </style>
@@ -43,54 +38,17 @@ $proinfo=getmProductById($id);
 </head>
 
 <body>
-    <!--header end-->
-    <header class="header minu-header ">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="head-top-right hidden-xs">
-                        <!-- <span class="fanuman"></span>
-          -->
-                        <a href="http://www.fanuman.com/" target="_blank">
-                            <span class="glyphicon glyphicon-home"></span>
-                            <span>法奴曼服装</span>
-                        </a>
-                        <a href="#" target="_blank">
-                            <span class="glyphicon glyphicon-envelope"></span>
-                            <span>在线留言</span>
-                        </a>
-                        <a href="#" target="_blank">
-                            <span class="glyphicon glyphicon-phone-alt"></span>
-                            <span>联系我们</span>
-                        </a>
-                    </div>
-                    <div class="clearfix"></div>
-                    <div class="col-md-offset-1 myclass company-name-feat">
-                        <img src="images/big-logo.jpg">
-                        <div class="companyname1 col-md-offset-2  hidden-xs">
-                            <h3>广东咪奴服装有限公司</h3>
-                            <span>GUANGDONG MINU GARMENT CO.LTD</span>
-                        </div>
-                        <div class="companyname2 col-md-offset-1  hidden-xs">
-                            <h4>品牌制服生产商</h4>
-                            <span></span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
-    <!-- <div class="container-full ">
--->
-    <!-- <div class="row">
--->
-    <!-- <div class="col-md-1"></div>
--->
- 
     <!-- nav start -->
-    <div class="navbar navbar-default bs-docs-nav minu-navbar" id="mainnav" role="navigation">
+    <div class="navbar navbar-default  bs-docs-nav minu-navbar" id="mainnav" role="navigation">
         <div class="container">
+        <!-- <div class="module left">
+                <a href="/entrepreneurs/">
+                    <img class="logo logo-dark" alt="Pitch Data" src="images/big-logo.jpg">
+                </a>
+            </div> -->
             <div class="navbar-header">
+            <a class="navbar-brand" href="#">
+                  <img alt="Brand" src="images/big-logo.jpg"></a>
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
@@ -101,31 +59,34 @@ $proinfo=getmProductById($id);
             </div>
             <div class="navbar-collapse collapse in" aria-expanded="true">
                 <ul class="nav navbar-nav">
-                    <li class="active">
+                    <!-- <li class="active">
                         <a href="/">
                             <span class="glyphicon glyphicon-home"></span>
                         </a>
+                    </li> -->
+                    <li class="myclass-test minu-index">
+                        <a href="#"><span>咪奴首页</span></a>
                     </li>
                     <li class="myclass-test">
-                        <a href="#">工作服定制</a>
+                        <a href="#"><span>工作服定制</span></a>
                     </li>
                     <li class="">
-                        <a href="/docs">西装定制</a>
+                        <a href="/docs"><span>西装定制</span></a>
                     </li>
                     <li>
-                        <a href="#">广告衫定制</a>
+                        <a href="#"><span>广告衫定制</span></a>
                     </li>
                     <li class="">
-                        <a href="#">客户案例</a>
+                        <a href="#"><span>客户案例</span></a>
                     </li>
                     <li class="">
-                        <a href="#">定做攻略</a>
+                        <a href="#"><span>定做攻略</span></a>
                     </li>
                     <li class="">
-                        <a href="#">品牌介绍</a>
+                        <a href="#"><span>品牌介绍</span></a>
                     </li>
                     <li class="">
-                        <a href="#">联系我们</a>
+                        <a href="#"><span>联系我们</span></a>
                     </li>
                 </ul>
             </div>
@@ -133,59 +94,27 @@ $proinfo=getmProductById($id);
         </div>
     </div>
     <!-- nav end -->
-    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-        <!-- Indicators -->
-        <ol class="carousel-indicators">
-            <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-            <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-            <!-- <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-<li data-target="#carousel-example-generic" data-slide-to="3"></li>
-<li data-target="#carousel-example-generic" data-slide-to="4"></li>
--->
-        </ol>
-        <!-- Wrapper for slides -->
-        <div class="carousel-inner" role="listbox">
-            <div class="item active">
-                <img src="images/index1.jpg" alt="0">
-                <!-- <div class="carousel-caption">
-<h1>Chorme</h1>
-<p>Chorme介绍</p>
-<p>
-<a href="" class="btn btn-lg btn-primary" target="_blank" role="button">点我下载</a>
-</p>
-</div>
--->
-            </div>
-            <div class="item">
-                <img src="images/index2.jpg" alt="1">
-                <!-- <div class="carousel-caption">firefox-big</div>
--->
-            </div>
-            
-        </div>
-        <!-- Controls -->
-        <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-          <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-          <span class="sr-only">上一页</span>
-        </a>
-        <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-          <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-          <span class="sr-only">下一页</span>
-        </a>
+    <!-- banner 图片 -->
+    <div class="minupro homepage-panel" id="minupro">
+      <!-- <img src="images/minupro.jpg"> -->
     </div>
+
+    
     <!-- 产品部分内容 start -->
     <div class="container g-bd-ser-newpro">
       <div class="row">
         <div class="col-sm-3 hidden-xs index-left g-sd-ser" id="index-left">
           <div class="block">
-            <div class="m-ser-tel">
-              <img src="images/onlineservice.jpg"></div>
+            <div class="m-ser-tel onlineservice">
+              <h3>在线客户中心</h3>
+              <!-- <img src="images/onlineservice.jpg"> -->
+              </div>
             <div class="m-ser-tel">
               <span>总机：&nbsp;020-32364991</span>
             </div>
             <div class="m-ser-tel">
               <span>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 020-32364661
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 020-32364661
               </span>
             </div>
             <div class="m-ser-tel">
@@ -216,15 +145,21 @@ $proinfo=getmProductById($id);
             <img style="CURSOR: pointer" onclick="javascript:window.open('http://b.qq.com/webc.htm?new=0&sid=1550966973&o=www.gdminu.com&q=7', '_blank', 'height=502, width=644,toolbar=no,scrollbars=no,menubar=no,status=no');" border="0" SRC=http://wpa.qq.com/pa?p=1:1550966973:1 alt="点击这里给我发消息">    
             <span>1550966973</span>
           </div>
+          <div class="m-wxchat-tit">
+            <span>咪奴微信号：</span>
+          </div>
+          <div class="m-wxchat">
+            <img src="images/wxchat.jpg">
+          </div>
           <!-- cloth left start -->
-          <div class="m-cloth-class">
-            <img src="images/clothclass.gif"></div>
+          <!-- <div class="m-cloth-class">
+            <img src="images/clothclass.gif"></div> -->
         </div>
 
         <ul class="list-unstyled m-cloth-class-det" id="cloth-sort">  
           <li>
             <div class="m-cloth-pic panel">
-               <img src="images/pp01.gif">
+               <!-- <img src="images/pp01.gif"> -->
                 <h3>西装量身定制</h3>
             </div>
             
@@ -241,7 +176,7 @@ $proinfo=getmProductById($id);
           </li>
           <li class="cloth-det">
             <div class="m-cloth-pic panel">
-               <img src="images/pp02.gif">
+               <!-- <img src="images/pp02.gif"> -->
                 <h3>衬衫定制</h3>
             </div>
             <div class="">
@@ -257,7 +192,7 @@ $proinfo=getmProductById($id);
           </li>
           <li>
           <div class="m-cloth-pic panel">
-               <img src="images/pp03.gif">
+               <!-- <img src="images/pp03.gif"> -->
                 <h3>T恤定制</h3>
             </div>
             
@@ -274,7 +209,7 @@ $proinfo=getmProductById($id);
           </li>
           <li>
           <div class="m-cloth-pic panel">
-               <img src="images/pp04.gif">
+               <!-- <img src="images/pp04.gif"> -->
                 <h3>工程服定制</h3>
             </div>
             <div class="">
@@ -290,7 +225,7 @@ $proinfo=getmProductById($id);
           </li>
           <li>
           <div class="m-cloth-pic panel">
-               <img src="images/pp05.gif">
+               <!-- <img src="images/pp05.gif"> -->
                 <h3>量身定制</h3>
             </div>
             
@@ -312,7 +247,7 @@ $proinfo=getmProductById($id);
         <div class="block">
           <header>
             <div class="hot-pro-title">
-                <h2>最新产品</h2>
+                <h2><?php echo $proinfo['pName']; ?></h2>
                 <!-- <hr> -->
             </div>
             

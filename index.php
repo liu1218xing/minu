@@ -1,6 +1,7 @@
 <?php 
 require_once 'include.php';
 $cates=getAllmCate();
+
  ?>
 <!DOCTYPE html>
 <html lang="zh-CN">
@@ -20,15 +21,7 @@ $cates=getAllmCate();
   <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
   <![endif]-->
     <style type="text/css">
-    /*body { padding-top: 5px; 
-    font-family: "Microsoft YaHei", "宋体", "Open Sans", Arial, serif;}*/
-    
-   /* body {
-        font-family: "Segoe UI", "Lucida Grande", Helvetica, Arial, "Microsoft YaHei", FreeSans, Arimo, "Droid Sans", "wenquanyi micro hei", "Hiragino Sans GB", "Hiragino Sans GB W3", FontAwesome, sans-serif;
-        color: #444;
-        background: #fbfbfb;
-        padding-top: 10px;
-    }*/
+         
 
     /*.nav*/
     </style>
@@ -38,47 +31,7 @@ $cates=getAllmCate();
 
 <body>
     <!--header end-->
-   <!--  <header class="header minu-header ">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="head-top-right hidden-xs">
-                        <a href="http://www.fanuman.com/" target="_blank">
-                            <span class="glyphicon glyphicon-home"></span>
-                            <span>法奴曼服装</span>
-                        </a>
-                        <a href="#" target="_blank">
-                            <span class="glyphicon glyphicon-envelope"></span>
-                            <span>在线留言</span>
-                        </a>
-                        <a href="#" target="_blank">
-                            <span class="glyphicon glyphicon-phone-alt"></span>
-                            <span>联系我们</span>
-                        </a>
-                    </div>
-                    <div class="clearfix"></div>
-                    <div class="col-md-offset-1 myclass company-name-feat">
-                        <img src="images/big-logo.jpg">
-                        <div class="companyname1 col-md-offset-2  hidden-xs">
-                            <h3>广东咪奴服装有限公司</h3>
-                            <span>GUANGDONG MINU GARMENT CO.LTD</span>
-                        </div>
-                        <div class="companyname2 col-md-offset-1  hidden-xs">
-                            <h4>品牌制服生产商</h4>
-                            <span></span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header> -->
-    <!-- <div class="container-full ">
--->
-    <!-- <div class="row">
--->
-    <!-- <div class="col-md-1"></div>
--->
- 
+   
     <!-- nav start -->
     <div class="navbar navbar-default  bs-docs-nav minu-navbar" id="mainnav" role="navigation">
         <div class="container">
@@ -106,28 +59,28 @@ $cates=getAllmCate();
                         </a>
                     </li> -->
                     <li class="myclass-test minu-index">
-                        <a href="#">咪奴首页</a>
+                        <a href="#"><span>咪奴首页</span></a>
                     </li>
                     <li class="myclass-test">
-                        <a href="#">工作服定制</a>
+                        <a href="#" target="_blank"><span>工作服定制</span></a>
                     </li>
                     <li class="">
-                        <a href="/docs">西装定制</a>
+                        <a href="/docs"><span>西装定制</span></a>
                     </li>
                     <li>
-                        <a href="#">广告衫定制</a>
+                        <a href="#" target="_blank"><span>广告衫定制</span></a>
                     </li>
                     <li class="">
-                        <a href="#">客户案例</a>
+                        <a href="#" target="_blank"><span>客户案例</span></a>
                     </li>
                     <li class="">
-                        <a href="#">定做攻略</a>
+                        <a href="#" target="_blank"><span>定做攻略</span></a>
                     </li>
                     <li class="">
-                        <a href="#">品牌介绍</a>
+                        <a href="about.php?id=1" target="_blank"><span>品牌介绍</span></a>
                     </li>
                     <li class="">
-                        <a href="#">联系我们</a>
+                        <a href="#" target="_blank"><span>联系我们</span></a>
                     </li>
                 </ul>
             </div>
@@ -149,19 +102,9 @@ $cates=getAllmCate();
         <div class="carousel-inner" role="listbox">
             <div class="item active">
                 <img src="images/index1.jpg" alt="0">
-                <!-- <div class="carousel-caption">
-<h1>Chorme</h1>
-<p>Chorme介绍</p>
-<p>
-<a href="" class="btn btn-lg btn-primary" target="_blank" role="button">点我下载</a>
-</p>
-</div>
--->
             </div>
             <div class="item">
                 <img src="images/index2.jpg" alt="1">
-                <!-- <div class="carousel-caption">firefox-big</div>
--->
             </div>
             
         </div>
@@ -334,7 +277,7 @@ $cates=getAllmCate();
               ?>
               <div class="col-sm-4 col-xs-12 hot-pro">
                 <div class="hot-pro-pic">
-                  <a href="product.php?id=<?php echo $cate['id']; ?>" target="_blank">
+                  <a href="product.php?id=<?php echo $cate['id']; ?>&page=1" target="_blank">
                     <img class="fill avatar" src="admin/uploads/<?php echo $proImg['albumPath'];?>"></a>
                 </div>
                 <div class="hot-title">
@@ -435,9 +378,9 @@ $cates=getAllmCate();
       </div>
     </div>
     <!-- 是否在担心 -->
-    <div class="worry">
-      
-        <img src="images/worry.jpg">
+    <div class="worry homepage-panel" id="worryview">
+      <!-- <img src="images/minupro.jpg"> -->
+        <!-- <img src="images/worry.jpg"> -->
       
     </div>
     <!-- 案例部分 -->
@@ -758,7 +701,7 @@ $cates=getAllmCate();
                     <!-- <div class="new-more"><a class="btn btn-default " href="#" role="button">more</a></div> -->
                 </div>
                 <div class="online-mes-list">
-                    <form action="doAdminAction.php?act=addProblem" method="post" class="form-horizontal" aria-invalid="true">
+                    <form action="doMessageAction.php?act=addProblem" method="post" class="form-horizontal" aria-invalid="true">
                     
 
                     <table border="0" cellpadding="5" cellspacing="0">
@@ -766,25 +709,25 @@ $cates=getAllmCate();
                       <tr>
                         <td align="right"><label class="label-control">联系人</label></td>
                         <td>
-                          <input class="form-control" type="text" name="cname" id="cname"/>
+                          <input class="form-control" type="text" name="mCustName" id="mCustName" required />
                         </td>
                       </tr>
                       <tr>
                         <td align="right">电话</td>
                         <td>
-                          <input class="form-control has-feedback" type="tel" name="cTel" id="cTel"/>
+                          <input class="form-control has-feedback" type="tel" name="mCustTel" id="mCustTel" required />
                         </td>
                       </tr>
                       <tr>
                         <td align="right">Email</td>
                         <td>
-                          <input class="form-control has-feedback" type="email" name="cemail" id="cemail"/>
+                          <input class="form-control has-feedback" type="email" name="mCustEmail" id="mCustEmail"/>
                         </td>
                       </tr>
                       <tr>
                         <td align="right">内容</td>
                         <td>
-                          <textarea class="form-control cproblem" name="cproblem" id="cproblem" style="height:60px;"></textarea>
+                          <textarea class="form-control cproblem" name="mCustDesc" id="mCustDesc" style="height:60px;" required></textarea>
                         </td>
                       </tr>
                       <tr>

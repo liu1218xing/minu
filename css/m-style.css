@@ -127,6 +127,7 @@ hr.divider {
     margin: 0;
     border-radius: 0;
     height: 100px;
+    border-color: #fff;
         /*line-height: 145px;*/
 }
 .carousel .carousel-inner img{
@@ -152,9 +153,14 @@ a {
     font-size: 16px;
     color: #ffffff;
     background-color: #bb110c;
+    /*border-bottom: 1px #fff dotted;*/
     /*text-decoration: underline;*/
 }
-
+.navbar-default .navbar-nav>li>a>span {
+    
+    border-bottom: 1px #fff dotted;
+    /*text-decoration: underline;*/
+}
 a:active,
 a:hover {
     /*outline: 0;*/
@@ -352,8 +358,9 @@ text-decoration: underline;
 .hot-pro{
     /*margin-left: 10px;*/
     /*border:1px red solid;*/
-    padding-left: 0px;
-    text-align: center;
+    padding-left: 0;
+    margin-left: 0;
+    text-align: left;
 }
 .hot-pro img {
     width: 260px;
@@ -361,6 +368,11 @@ text-decoration: underline;
 }
 .hot-pro-intro{
     border-left: 1px #e1e1e1 solid;
+    padding-right: 0;
+    margin-right: 0;
+}
+.hot-pro-intro .hot-title{
+    text-align: center;
 }
 .hot-pro-intro .hot-title a {
     font-size: 14px;
@@ -393,7 +405,9 @@ text-decoration: underline;
 }
 
 .hot-pro {
-    text-align: center;
+    text-align: right;
+    padding-right: 0;
+    margin-right: 0;
     /*border: 1px blue solid;*/
     margin-bottom: 6px;
 }
@@ -790,6 +804,35 @@ text-decoration: underline;
     background-color: #bb110c;
     color: #fff;
 }
+
+#worryview .homepage-panel {
+    min-height: 100px;
+    width: 100%;
+    margin: 0%;
+}
+ #worryview {
+    text-align: center;
+    background: #b6c0cc;
+    height: 780px;
+    background: url('../images/worry.jpg') no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+#minupro .homepage-panel {
+    min-height: 100px;
+    width: 100%;
+    margin: 0%;
+}
+ #minupro {
+    /*margin-top: 10px;*/
+    text-align: center;
+    background: #b6c0cc;
+    height: 350px;
+    background: url('../images/minupro.jpg') no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
 /*.select-cust-list .cust-list{
   border: 1px blue solid;
   width: 30%;

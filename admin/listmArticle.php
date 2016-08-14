@@ -1,24 +1,25 @@
 <?php 
 require_once '../include.php';
 checkLogined();
-$cates=getAllmCate();
-if(!$cates){
-	alertMes("没有相应分类，请先添加商品分类，可联系管理员!!", "addmCate.php");
-}
+$cates=getAllmModule();
+// var_dump($cates);
+// if(!$cates){
+// 	alertMes("没有相应分类，请先添加商品分类，可联系管理员!!", "addmCate.php");
+// }
 // var_dump($cates);
 $wherecid=$_REQUEST['where']?$_REQUEST['where']:null;
 
 
 $order=$_REQUEST['order']?$_REQUEST['order']:null;
-$orderBy=$order?"order by p.".$order:null;
+$orderBy=$order?"order by ".$order:null;
 $keywords=$_REQUEST['keywords']?$_REQUEST['keywords']:null;
-$where=$keywords?"where p.pName like '%{$keywords}%'":null;
+$where=$keywords?"where aName like '%{$keywords}%'":null;
 if($wherecid){
-	$where=$where?$where.' and p.cId = '.$wherecid : 'where p.cId = '.$wherecid ;
+	$where=$where?$where.' and iId = '.$wherecid : 'where iId = '.$wherecid ;
 }
 // var_dump($where);
 //得到数据库中所有商品
-$sql="select p.id,p.pName,p.pSn,p.pDesc,p.pubTime,p.isShow,p.isHot,c.cName from product as p join mind_cate c on p.cId=c.id {$where}  ";
+$sql="select id,atitle,akey,adescription,asummary,aName,aSource,aAuthor,aDesc,aHit,createTime,isShow,iId from mind_article {$where}  ";
 $totalRows=getResultNum($sql);
 $pageSize=8;
 $totalPage=ceil($totalRows/$pageSize);
@@ -26,9 +27,9 @@ $page=$_REQUEST['page']?(int)$_REQUEST['page']:1;
 if($page<1||$page==null||!is_numeric($page))$page=1;
 if($page>$totalPage)$page=$totalPage;
 $offset=($page-1)*$pageSize;
-$sql="select p.id,p.pName,p.pSn,p.pDesc,p.pubTime,p.isShow,p.isHot,c.cName from product as p join mind_cate c on p.cId=c.id {$where} {$orderBy} limit {$offset},{$pageSize}";
+$sql="select id,atitle,akey,adescription,asummary,aName,aSource,aAuthor,aDesc,aHit,createTime,isShow,iId from mind_article {$where} {$orderBy} limit {$offset},{$pageSize}";
 $rows=fetchAll($sql);
-
+// var_dump($rows);
 
 ?>
 <!doctype html>
@@ -64,16 +65,16 @@ $rows=fetchAll($sql);
 <div class="details">
                     <div class="details_operation clearfix">
                         <div class="btn-add">
-                            <input type="button" value="添&nbsp;&nbsp;加" class="btn btn-default" onclick="addmProduct()">
+                            <input type="button" value="添&nbsp;&nbsp;加" class="btn btn-default" onclick="addmArticle()">
                         </div>
                         <div class="fr">
                             <div class="text">
-                                <span>商品分类</span>
+                                <span>文章类型</span>
                                 <div class="bui_select">
-                                    <select id="changcid" class="form-control" onchange="changecid(this.value)">
+                                    <select id="changcid" class="form-control" onchange="changeiId(this.value)">
                                     	<option>-请选择-</option>
                                     	<?php foreach ($cates as $cate):?>
-											<option value="<?php echo $cate['id']; ?>" ><?php echo $cate['cName'];?></option>
+											<option value="<?php echo $cate['id']; ?>" ><?php echo $cate['mName'];?></option>
 										<?php endforeach;?>
 
                                         
@@ -81,12 +82,12 @@ $rows=fetchAll($sql);
                                 </div>
                             </div>
                             <div class="text">
-                                <span>上架时间：</span>
+                                <span>创建时间：</span>
                                 <div class="bui_select">
                                  <select id="" class="form-control" onchange="change(this.value)">
                                  	<option>-请选择-</option>
-                                        <option value="pubTime desc" >最新发布</option>
-                                        <option value="pubTime asc">历史发布</option>
+                                        <option value="createTime desc" >最新发布</option>
+                                        <option value="createTime asc">历史发布</option>
                                     </select>
                                 </div>
                             </div>
@@ -101,11 +102,11 @@ $rows=fetchAll($sql);
                         <thead>
                             <tr>
                                 <th width="5%">序号</th>
-                                <th width="10%">商品编码</th>
-                                <th width="20%">商品名称</th>
-                                <th width="10%">商品分类</th>
+                                <th width="20%">定做攻略标题</th>
+                                <th width="15%">文章类型</th>
+                                <!-- <th width="10%">网页标题栏名称</th> -->
                                 <th width="10%">是否展示</th>
-                                <th width="15%">上架时间</th>
+                                <th width="15%">创建时间</th>
                                 <th>操作</th>
                             </tr>
                         </thead>
@@ -115,39 +116,34 @@ $rows=fetchAll($sql);
                                 <!--这里的id和for里面的c1 需要循环出来-->
                                 <!-- <td><input type="text" id="c<?php echo $row['id'];?>" class="check" value=<?php echo $row['id'];?>><label for="c1" class="label"><?php echo $row['id'];?></label></td> -->
 								<td><?php echo $row['id'];?></td>
-                                <td><?php echo $row['pSn'];?></td>
-                                <td><?php echo $row['pName']; ?></td>
-                                <td><?php echo $row['cName'];?></td>
+								<td><?php echo $row['aName']; ?></td>
+                                <td><?php $industry = getmModuleById($row['iId']); echo $industry['mName'];?></td>
+                                
+                                
                                 <td>
                                 	<?php echo $row['isShow']==1?"展示":"隐藏";?>
                                 </td>
-                                 <td><?php echo date("Y-m-d H:i:s",$row['pubTime']);?></td>
+                                 <td><?php echo date("Y-m-d H:i:s",$row['createTime']);?></td>
                                   
                                 <td align="center">
-                                				<input type="button" value="详情" class="btn btn-default" onclick="showDetail(<?php echo $row['id'];?>,'<?php echo $row['pName'];?>')"><input type="button" value="修改" class="btn btn-default" onclick="editmProduct(<?php echo $row['id'];?>)"><input type="button" value="删除" class="btn btn-default"onclick="delmProduct(<?php echo $row['id'];?>)">
+                                				<input type="button" value="详情" class="btn btn-default" onclick="showDetail(<?php echo $row['id'];?>,'<?php echo $row['aName'];?>')"><input type="button" value="修改" class="btn btn-default" onclick="editmArticle(<?php echo $row['id'];?>)"><input type="button" value="删除" class="btn btn-default"onclick="delmArticle(<?php echo $row['id'];?>)">
 					                            <div id="showDetail<?php echo $row['id'];?>" style="display:none;">
 					                        	<table class="table" cellspacing="0" cellpadding="0">
+					                        		
 					                        		<tr>
-					                        			<td width="20%"  align="right">商品货号</td>
-					                        			<td><?php echo $row['pSn'];?></td>
+					                        			<td width="20%" align="right">定做攻略标题</td>
+					                        			<td><?php echo $row['aName'];?></td>
 					                        		</tr>
 					                        		<tr>
-					                        			<td width="20%" align="right">商品名称</td>
-					                        			<td><?php echo $row['pName'];?></td>
+					                        			<td width="20%"  align="right">文章类型</td>
+					                        			<td><?php $industry = getmModuleById($row['id']); echo $industry['mName']?></td>
 					                        		</tr>
-					                        		<tr>
-					                        			<td width="20%"  align="right">商品类别</td>
-					                        			<td><?php echo $row['cName'];?></td>
-					                        		</tr>
-					                        		
-					                        		
-					                        		
-					                        		
+
 					                        		<tr>
 					                        			<td width="20%"  align="right">商品图片</td>
 					                        			<td>
 					                        			<?php 
-					                        			$proImgs=getAllImgBymProductId($row['id']);
+					                        			$proImgs=getAllImgBymArticleId($row['id']);
 					                        			foreach($proImgs as $img):
 					                        			?>
 					                        			<img width="100" height="100" src="uploads/<?php echo $img['albumPath'];?>" alt=""/> &nbsp;&nbsp;
@@ -155,21 +151,16 @@ $rows=fetchAll($sql);
 					                        			</td>
 					                        		</tr>
 					                        		<tr>
-					                        			<td width="20%"  align="right">是否上架</td>
+					                        			<td width="20%"  align="right">是否展示</td>
 					                        			<td>
-					                        				<?php echo $row['isShow']==1?"上架":"下架";?>
+					                        				<?php echo $row['isShow']==1?"显示":"隐藏";?>
 					                        			</td>
 					                        		</tr>
-					                        		<tr>
-					                        			<td width="20%"  align="right">是否热卖</td>
-					                        			<td>
-					                        				<?php echo $row['isHot']==1?"热卖":"正常";?>
-					                        			</td>
-					                        		</tr>
+					                        		
 					                        	</table>
 					                        	<span style="display:block;width:80%; ">
 					                        	商品描述<br/>
-					                        	<?php echo htmlspecialchars_decode($row['pDesc']);?>
+					                        	<?php echo htmlspecialchars_decode($row['aDesc']);?>
 					                        	</span>
 					                        </div>
                                 
@@ -193,34 +184,34 @@ function showDetail(id,t){
 	      modal:false,//是否模式对话框
 	      draggable:true,//是否允许拖拽
 	      resizable:true,//是否允许拖动
-	      title:"商品名称："+t,//对话框标题
+	      title:"文章名称："+t,//对话框标题
 	      show:"slide",
 	      hide:"explode"
 	});
 }
-	function addmProduct(){
-		window.location='addmProduct.php';
+	function addmArticle(){
+		window.location='addmArticle.php';
 	}
-	function editmProduct(id){
+	function editmArticle(id){
 		// alert(id);
-		window.location='editmProduct.php?id='+id;
+		window.location='editmArticle.php?id='+id;
 	}
-	function delmProduct(id){
+	function delmArticle(id){
 		if(window.confirm("您确认要删除嘛？添加一次不易，且删且珍惜!")){
-			window.location="doAdminAction.php?act=delmProduct&id="+id;
+			window.location="doAdminAction.php?act=delmArticle&id="+id;
 		}
 	}
 	function search(){
 		if(event.keyCode==13){
 			var val=document.getElementById("search").value;
-			window.location="listmProduct.php?keywords="+val;
+			window.location="listmArticle.php?keywords="+val;
 		}
 	}
 	function change(val){
-		window.location="listmProduct.php?order="+val;
+		window.location="listmArticle.php?order="+val;
 	}
-	function changecid(val){
-		window.location="listmProduct.php?where="+val;
+	function changeiId(val){
+		window.location="listmArticle.php?where="+val;
 	}
 </script>
 </body>

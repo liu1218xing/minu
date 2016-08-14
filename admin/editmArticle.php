@@ -1,10 +1,11 @@
 <?php 
 require_once '../include.php';
 checkLogined();
-$rows=getAllmCate();
-if(!$rows){
-	alertMes("没有相应分类，请先添加商品分类，可联系管理员!!", "addmCate.php");
-}
+$rows=getAllmModule();
+// var_dump($rows);
+// if(!$rows){
+// 	alertMes("没有相应分类，请先添加商品分类，可联系管理员!!", "editmCate.php");
+// }
 ?>
 <!doctype html>
 <html>
@@ -53,49 +54,48 @@ if(!$rows){
 </style>
 </head>
 <body>
-<h3>添加商品</h3>
-<form action="doAdminAction.php?act=addmProduct" method="post" enctype="multipart/form-data" >
+<h3>添加定做攻略信息</h3>
+<form action="doAdminAction.php?act=editmArticle&id=<?php echo $id;?>" method="post" enctype="multipart/form-data" >
 <table width="90%"  border="1" cellpadding="5" cellspacing="0" bgcolor="#cccccc">
 	<tr>
-		<td align="right">商品排序号</td>
-		<td><input class="form-inline" type="text" name="sortid"  placeholder="商品排序号"/></td>
+		<td align="right">定做攻略标题</td>
+		<td><input  type="text" name="aName"  placeholder="请输入定做攻略标题"/></td>
 	</tr>
 	<tr>
-		<td align="right">商品类别</td>
+		<td align="right">文章类型</td>
 		<td>
-		<select name="cId">
+		<select name="iId">
 			<option value="01"></option>
 			<?php foreach($rows as $row):?>
-				<option value="<?php echo $row['id'];?>"><?php echo $row['cName'];?></option>
+				<option value="<?php echo $row['id'];?>"><?php echo $row['mName'];?></option>
 			<?php endforeach;?>
 		</select>
 		</td>
 	</tr>
 	<tr>
-		<td align="right">商品编码</td>
-		<td><input type="text" name="pSn"  placeholder="请输入商品编码"/></td>
+		<td align="right">定做攻略来源</td>
+		<td><input type="text" name="aSource"  placeholder="请输入定做攻略来源"/></td>
 	</tr>
 	<tr>
-		<td align="right">商品名称</td>
-		<td><input  type="text" name="pName"  placeholder="请输入商品名称"/></td>
+		<td align="right">定做攻略作者</td>
+		<td><input type="text" name="aAuthor"  placeholder="请输入定做攻略作者"/></td>
 	</tr>
-	
 	<tr>
-		<td align="right">title关键词</td>
-		<td><input type="text" name="ptitle"  placeholder="请输入title关键词"/></td>
+		<td align="right">网页标题栏名称</td>
+		<td><input type="text" name="atitle"  placeholder="请输入网页标题栏名称"/></td>
 	</tr>
 	<tr>
 		<td align="right">keywords关键词</td>
-		<td><input type="text" name="pkey"  placeholder="请输入keywords关键词"/></td>
+		<td><input type="text" name="akey"  placeholder="请输入keywords关键词"/></td>
 	</tr>
 	<tr>
 		<td align="right">description关键词</td>
-		<td><input type="text" name="pdescription"  placeholder="请输入description关键词"/></td>
+		<td><input type="text" name="adescription"  placeholder="请输入description关键词"/></td>
 	</tr>
-	<tr>
-		<td align="right">商品摘要</td>
-		<td><input type="text" name="psummary"  placeholder="请输入商品摘要"/></td>
-	</tr>
+	<!-- <tr>
+		<td align="right">定做攻略摘要</td>
+		<td><input type="text" name="asummary"  placeholder="请输入定做攻略摘要"/></td>
+	</tr> -->
 	<tr>
 		<td align="right">是否展示</td>
 		<td>
@@ -104,12 +104,11 @@ if(!$rows){
 		</td>
 	</tr>
 	<tr>
-		<td align="right">商品描述</td>
+		<td align="right">定做攻略详细内容</td>
 		<td>
-			<textarea name="pDesc" id="editor_id" style="width:100%;height:350px;"></textarea>
+			<textarea name="aDesc" id="editor_id" style="width:100%;height:350px;"></textarea>
 		</td>
 	</tr>
-	
 	<tr>
 		<td align="right">商品图像</td>
 		<td>
